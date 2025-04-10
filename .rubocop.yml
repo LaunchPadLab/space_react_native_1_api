@@ -1,6 +1,5 @@
-require:
+plugins:
   - rubocop-performance
-
 AllCops:
   TargetRubyVersion: 3.3.3
   # RuboCop has a bunch of cops enabled by default. This setting tells RuboCop
