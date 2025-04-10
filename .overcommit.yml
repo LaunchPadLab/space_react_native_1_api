@@ -1,0 +1,23 @@
+PreCommit:
+  RuboCop:
+    required_executable: 'bundle'
+    enabled: true
+    command: ['bundle', 'exec', 'rubocop', '-A']
+    on_warn: fail
+  EsLint:
+    required_executable: 'yarn'
+    command: ['yarn', 'eslint', '-f', 'compact', '--max-warnings=0']
+    include:
+      - 'app/javascript/**/*'
+    exclude:
+      - '**/.*'
+    enabled: true
+    on_warn: fail
+  Prettier:
+    enabled: true
+    required_executable: 'yarn'
+    command: ['yarn', 'prettier', '--', '--write']
+    include:
+      - 'app/javascript/**/*'
+      - '.eslintrc.js'
+      - 'app/assets/stylesheets/**/*'

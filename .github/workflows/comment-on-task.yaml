@@ -1,0 +1,35 @@
+on:
+  pull_request:
+    types: [opened, closed, reopened, review_requested]
+
+jobs:
+  create-open-close-comment-in-asana-task-job:
+    runs-on: ubuntu-latest
+    if: github.event.action != 'review_requested'
+    name: Create a comment in Asana Task with current status
+    steps:
+      - name: Create an opened, closed, or merged comment
+        uses: Asana/comment-on-task-github-action@latest
+        id: createOpenCloseComment
+        with:
+          asana-secret: ${{ secrets.ASANA_SECRET }}
+          comment-text: 'PR: "{{PR_NAME}}" is {{PR_STATE}}!'
+      - name: Get status
+        run: echo "Status is ${{ steps.createOpenCloseComment.outputs.status }}"
+  create-review-requested-comment-in-asana-task-job:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.action == 'review_requested' && !contains(github.event.pull_request.labels.*.name, 'internal review') }}
+    name: Create a comment in Asana Task when ready for review
+    steps:
+      - name: Create a review requested comment
+        uses: Asana/comment-on-task-github-action@latest
+        id: createReviewRequestedComment
+        with:
+          asana-secret: ${{ secrets.ASANA_SECRET }}
+          comment-text: 'PR: "{{PR_NAME}}" is ready for review!'
+      - name: Get status
+        run: echo "Status is ${{ steps.createReviewRequestedComment.outputs.status }}"
+      - name: Add label
+        uses: actions-ecosystem/action-add-labels@v1.1.3
+        with:
+          labels: internal review

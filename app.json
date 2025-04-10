@@ -1,0 +1,52 @@
+{
+  "name": "",
+  "description": "",
+  "scripts": {
+    "postdeploy": "bundle exec rake db:schema:load db:seed"
+  },
+  "env": {
+    "APPLICATION_ROOT_URL": {
+      "required": true
+    },
+    "LANG": {
+      "required": true,
+      "value": "en_US.UTF-8"
+    },
+    "RACK_ENV": {
+      "required": true,
+      "value": "production"
+    },
+    "RAILS_ENV": {
+      "required": true,
+      "value": "staging"
+    },
+    "RAILS_LOG_TO_STDOUT": {
+      "required": true,
+      "value": "enabled"
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true,
+      "value": "enabled"
+    },
+    "SECRET_KEY_BASE": {
+      "required": true,
+      "generator": "secret"
+    },
+    "SENTRY_URL" : {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "heroku-postgresql:mini"
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-ruby"
+    }
+  ]
+}
