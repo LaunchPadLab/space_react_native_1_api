@@ -8,5 +8,8 @@
 
 raise 'SEEDING NOT ALLOWED IN PRODUCTION' if Rails.env.production?
 
+100.times do
+FactoryBot::create(:venue)
+end
 
 # Seeds::UserSeeder.new.run

@@ -9,6 +9,7 @@ gem 'decanter', '~> 4.0'
 gem 'factory_bot_rails', '~> 6.4'
 gem 'faker', '~> 3.3'
 gem 'figaro', '~> 1.2'
+gem 'jbuilder'
 gem 'jsonapi-serializer', '~> 2.2'
 gem 'lp_token_auth', '~> 2.0'
 gem 'paper_trail', '~> 15.1'
@@ -38,6 +39,7 @@ group :development, :test do
   gem 'pry', '~> 0.14.2'
   gem 'rspec-rails', '~> 6.0.0'
 
+  gem 'byebug'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
 end
 

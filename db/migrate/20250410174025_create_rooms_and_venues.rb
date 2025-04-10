@@ -1,6 +1,7 @@
 class CreateRoomsAndVenues < ActiveRecord::Migration[7.1]
   def change
     create_table :rooms do |t|
+      t.string :name
       t.string :invite_code
       t.integer :host_id
       t.integer :status
@@ -9,10 +10,12 @@ class CreateRoomsAndVenues < ActiveRecord::Migration[7.1]
     end
 
     create_table :venues do |t|
-      t.integer :cost
+      t.string :name
+      t.string :instagram_link
       t.string :menu_link
+      t.integer :cost
       t.integer :rating
-      t.integer :category_id
+      t.integer :category
 
       t.timestamps
     end
