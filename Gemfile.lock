@@ -111,6 +111,7 @@ GEM
     bullet (7.2.0)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
+    byebug (11.1.3)
     case_transform (0.2)
       activesupport
     childprocess (5.1.0)
@@ -159,6 +160,9 @@ GEM
       pp (>= 0.6.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
+    jbuilder (2.13.0)
+      actionview (>= 5.0.0)
+      activesupport (>= 5.0.0)
     json (2.10.2)
     jsonapi-renderer (0.2.2)
     jsonapi-serializer (2.2.0)
@@ -365,6 +369,7 @@ DEPENDENCIES
   binding_of_caller
   bootsnap
   bullet (~> 7.1)
+  byebug
   cssbundling-rails
   database_cleaner-active_record
   database_cleaner-redis
@@ -373,6 +378,7 @@ DEPENDENCIES
   factory_bot_rails (~> 6.4)
   faker (~> 3.3)
   figaro (~> 1.2)
+  jbuilder
   jsonapi-serializer (~> 2.2)
   letter_opener
   lp_token_auth (~> 2.0)
