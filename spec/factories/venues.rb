@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :venue do
-    name { 'Venue Name' }
-    menu_link { 'http://menu.page.com' }
-    cost 100
-    rating 5
-    category_id 1
+    name { Faker::Restaurant.name }
+    menu_link { 'http://google.com' }
+    cost { 100 }
+    rating { 5 }
+    category { Venue.categories.values.sample }
   end
 end

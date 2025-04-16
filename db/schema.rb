@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_10_174650) do
   end
 
   create_table "rooms", force: :cascade do |t|
+    t.string "name"
     t.string "invite_code"
     t.integer "host_id"
     t.integer "status"
@@ -39,10 +40,12 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_10_174650) do
   end
 
   create_table "venues", force: :cascade do |t|
-    t.integer "cost"
+    t.string "name"
+    t.string "instagram_link"
     t.string "menu_link"
+    t.integer "cost"
     t.integer "rating"
-    t.integer "category_id"
+    t.integer "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
