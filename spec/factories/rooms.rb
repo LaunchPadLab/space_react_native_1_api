@@ -1,7 +1,9 @@
 FactoryBot.define do
   factory :room do
-    invite_code { SecureRandom.hex(10) }
-    venue { venue }
+    name { Faker::Book.title }
+    invite_code { SecureRandom.hex(3) }
+    venues { [venue] }
     host_id { attendee }
+    status { :open }
   end
 end

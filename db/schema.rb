@@ -46,6 +46,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_10_174650) do
     t.integer "cost"
     t.integer "rating"
     t.integer "category"
+    t.decimal "lat", precision: 10, scale: 6
+    t.decimal "lng", precision: 10, scale: 6
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

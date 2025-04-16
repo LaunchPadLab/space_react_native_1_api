@@ -17,7 +17,9 @@ Rails.application.configure do
       Bullet.alert = true
       Bullet.rails_logger = true
     end
-    
+
+  config.hosts << /[a-z0-9\-]+\.ngrok\.app/
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time

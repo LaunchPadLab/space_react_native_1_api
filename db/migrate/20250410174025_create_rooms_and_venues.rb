@@ -16,6 +16,8 @@ class CreateRoomsAndVenues < ActiveRecord::Migration[7.1]
       t.integer :cost
       t.integer :rating
       t.integer :category
+      t.decimal :lat, :precision => 10, :scale => 6
+      t.decimal :lng, :precision => 10, :scale => 6
 
       t.timestamps
     end
