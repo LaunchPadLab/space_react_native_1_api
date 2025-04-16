@@ -12,4 +12,15 @@ raise 'SEEDING NOT ALLOWED IN PRODUCTION' if Rails.env.production?
 FactoryBot::create(:venue)
 end
 
+3.times do
+  FactoryBot::create(:room,
+                     venues: [Venue.first, Venue.second, Venue.third],
+                     host_id: nil)
+end
+
+Room.all.each do |room|
+  host = FactoryBot::create(:attendee, room_id: room.id)
+  room.update(host_id: host.id)
+end
+
 # Seeds::UserSeeder.new.run
