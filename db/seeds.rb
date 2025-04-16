@@ -7,4 +7,6 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 raise 'SEEDING NOT ALLOWED IN PRODUCTION' if Rails.env.production?
+
+
 # Seeds::UserSeeder.new.run
