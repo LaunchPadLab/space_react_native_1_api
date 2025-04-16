@@ -1,7 +1,7 @@
 class VotesController < ApplicationController
   def create
     rooms_venues_id = RoomVenue.find_by(venue_id: vote_params[:venue_id],
-                                      room_id: vote_params[:room_id]).id
+                                        room_id: vote_params[:room_id]).id
 
     @vote = Vote.new(rooms_venues_id:, attendee_id: vote_params[:attendee_id])
     if @vote.save
